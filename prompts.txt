@@ -1,0 +1,7 @@
+Prompt 1: I'm scraping ekantipur.com/entertainment with Playwright Python. Articles are in div.category-inner-wrapper. Title in h2 a, author in .author-name p a, image in data-src attribute (lazy loaded). Write a function to extract top 5 articles returning list of dicts with title, image_url, category, author fields.
+
+Prompt 2: I'm scraping ekantipur.com/entertainment with Playwright Python. Articles are in div.category-inner-wrapper. Title in h2 a, author in .author-name p a, image in data-src attribute (lazy loaded). Write a function to extract top 5 articles returning list of dicts with title, image_url, category, author fields.
+
+Prompt 3: (Using the add to chat). image_url is showing as null despite using data-src for extraction
+
+Prompt 4: (Using the quick edit by selecting a block) Insert this is a try except block
