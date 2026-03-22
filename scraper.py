@@ -27,9 +27,7 @@ def scrape_entertainment_news(page):
         cards = []
 
     articles = []
-    category_el = page.query_selector("div.category-name p a") 
-    category = category_el.text_content().strip() #since extracting from /entertainment we extract category from another tag and use it for all since the corresponding news cards dont have category element
-    
+
     for card in cards[:5]: 
         try:
             #grab title inside category-description h2->a tag
@@ -43,6 +41,7 @@ def scrape_entertainment_news(page):
             image_url = img_el.get_attribute("src") if img_el else None
 
 
+            category = "मनोरञ्जन"
 
             articles.append({
                 "title": title,
@@ -69,17 +68,15 @@ def scrape_cartoon_of_the_day(page):
         print(f"Error navigating to cartoon page: {e}")
         return None
 
-
     try:
         page.evaluate("window.scrollTo(0, 300)")
         page.wait_for_timeout(2000)
 
         page.wait_for_selector("div.cartoon-wrapper")
 
-        cartoon = page.query_selector("div.cartoon-wrapper")
     except Exception as e:
-        print(f"Error during scrolling or selecting cartoon wrapper: {e}")
-        cartoon = None
+        print(f"Error during scrolling: {e}")
+    cartoon = page.query_selector("div.cartoon-wrapper")
 
     if not cartoon:
         print("No cartoon found!")
